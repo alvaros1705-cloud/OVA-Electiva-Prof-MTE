@@ -873,3 +873,17 @@ html[data-theme="dark"] .unit-summary,
 html[data-theme="dark"] .unit-detail p {
   text-shadow: 0 1px 0 rgba(0, 0, 0, .10);
 }
+
+
+/* Corrección puntual: tarjetas 2 y 3 de "¿Por qué esta OVA?" en modo oscuro.
+   La primera tarjeta se conserva exactamente como está. */
+html[data-theme="dark"] .sequence-list > div:nth-child(2) {
+  background: linear-gradient(110deg, #142d50 0%, #1b355b 72%, #26365b 100%);
+  border-color: #45658f;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+}
+html[data-theme="dark"] .sequence-list > div:nth-child(3) {
+  background: linear-gradient(110deg, #192847 0%, #272b50 68%, #352b56 100%);
+  border-color: #5c5084;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
+}
