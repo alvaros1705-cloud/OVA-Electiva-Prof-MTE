@@ -48,7 +48,7 @@ El módulo dispone de un poster para el video y una alternativa de iniciales par
 
 `otros integrantes/portal-ova-main/` utiliza Supabase para autenticación y almacenamiento. Antes de probar el flujo de autenticación en el nuevo dominio, se debe autorizar la siguiente Redirect URL y revisar el Site URL en el proyecto Supabase:
 
-`https://alvaros1705-cloud.github.io/ova-electiva-profesional-modelos/otros%20integrantes/portal-ova-main/index.html`
+`https://alvaros1705-cloud.github.io/OVA-Electiva-Prof-MTE/otros%20integrantes/portal-ova-main/index.html`
 
 No se dispone de acceso a la configuración del proyecto Supabase desde este paquete.
 
@@ -63,8 +63,8 @@ No se dispone de acceso a la configuración del proyecto Supabase desde este paq
 - `index.html` está en la raíz.
 - `.nojekyll` está incluido.
 - `.github/workflows/deploy-pages.yml` publica desde `main` mediante GitHub Actions.
-- Nombre previsto del repositorio: `ova-electiva-profesional-modelos`.
-- URL prevista: `https://alvaros1705-cloud.github.io/ova-electiva-profesional-modelos/`.
+- Nombre previsto del repositorio: `OVA-Electiva-Prof-MTE`.
+- URL prevista: `https://alvaros1705-cloud.github.io/OVA-Electiva-Prof-MTE/`.
 
 ## Limitación de validación funcional
 
@@ -88,5 +88,14 @@ El conector disponible permite consultar y escribir en repositorios existentes, 
 ## Estado de creación y publicación remota
 
 - El paquete ZIP final está preparado con `index.html` en raíz, los recursos, `.nojekyll` y `.github/workflows/deploy-pages.yml`.
-- En esta sesión no se creó el repositorio remoto: la integración GitHub disponible no expone una operación de creación de repositorios y el entorno local no tiene `gh` instalado ni una credencial GitHub autenticada. El script `PUBLICAR-OVA-ELECTIVA-PROFESIONAL.ps1` está preparado para crear el repositorio mediante GitHub CLI y publicar el sitio desde una sesión autenticada del equipo del docente.
-- No se declara URL de publicación activa hasta que el repositorio remoto exista y el workflow de GitHub Pages finalice satisfactoriamente.
+- El repositorio `alvaros1705-cloud/OVA-Electiva-Prof-MTE` fue creado por el docente. El árbol remoto inicialmente contenía solo cinco archivos; para cargar la estructura completa se preparó `ACTUALIZAR-OVA-MODELOS-GITHUB.ps1`, que clona el repositorio existente, copia los 261 archivos del paquete, verifica presencia y tamaño antes del commit y envía los cambios a la rama `main` usando Git Credential Manager o GitHub CLI.
+- No se declara URL de publicación activa hasta que los recursos estén en el árbol remoto y el workflow de GitHub Pages finalice satisfactoriamente.
+
+
+## Aclaración de carga remota (22/11/2026)
+
+- Repositorio de destino: `https://github.com/alvaros1705-cloud/OVA-Electiva-Prof-MTE`.
+- Al comprobar el árbol remoto, solo había cinco archivos en la raíz y no estaban las carpetas de recursos.
+- El paquete de publicación contiene 261 archivos: `.github/`, `css/`, `documentos/`, `images/`, `js/`, `otros integrantes/`, `pacman/` y `videos/`, además de los archivos HTML y documentación de la raíz.
+- El script `ACTUALIZAR-OVA-MODELOS-GITHUB.ps1` está dirigido solo a ese repositorio existente. Comprueba los 261 archivos y tamaños antes de realizar `git push`; no usa `/MIR` y no elimina archivos remotos.
+- La publicación no se considera finalizada hasta verificar el árbol remoto, el workflow `Deploy Electiva Profesional OVA` y la apertura de `index.html` desde GitHub Pages.
