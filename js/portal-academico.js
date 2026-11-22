@@ -133,7 +133,7 @@
       themeLabel.textContent = lang === "en" ? (value === "dark" ? "Light mode" : "Dark mode") : (value === "dark" ? "Modo claro" : "Modo oscuro");
     }
     const metaTheme = document.querySelector('meta[name="theme-color"]');
-    if (metaTheme) metaTheme.content = value === "dark" ? "#071b13" : "#073d2b";
+    if (metaTheme) metaTheme.content = value === "dark" ? "#081329" : "#073d2b";
     if (persist) { try { localStorage.setItem("electivaTema", value); } catch (error) {} }
   }
 
