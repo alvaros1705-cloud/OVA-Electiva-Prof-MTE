@@ -1,0 +1,82 @@
+/* ========================================
+   NAVEGACIÓN POR PASOS, TEMA OSCURO Y EQUIPO
+   ======================================== */
+.pg-off { display: none !important; }
+body { padding-bottom: 4.8rem; }
+
+/* Botón «Empezar» con letras blancas */
+.nav-links a.btn-login, .mobile-menu a.btn-login-mobile { color: #fff !important; }
+
+/* Barra inferior */
+.pg-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .6rem 1rem; background: #fff; border-top: 3px solid var(--acento); box-shadow: 0 -6px 20px rgba(0,0,0,.12); }
+.pg-tools, .pg-nav { display: flex; gap: .5rem; align-items: center; }
+.pg-tool { min-width: 2.4rem; height: 2.4rem; padding: 0 .5rem; font-size: 1rem; font-weight: 700; color: var(--verde-oscuro); background: #fff; border: 2px solid #dfe8e2; border-radius: 99px; }
+.pg-tool:hover { border-color: var(--verde); }
+.pg-info { flex: 1; max-width: 26rem; text-align: center; font-size: .85rem; color: #4b5563; }
+.pg-info b { color: #1A1D24; }
+.pg-prog { height: 5px; margin-top: .35rem; background: #e3ece6; }
+.pg-prog i { display: block; height: 100%; width: 0; background: var(--verde); transition: width .3s; }
+.pg-btn { padding: .6rem 1.2rem; font-weight: 700; font-size: .9rem; color: #fff; background: var(--verde); border: 2px solid var(--verde); border-radius: 99px; }
+.pg-btn:hover:not(:disabled) { background: var(--verde-oscuro); border-color: var(--verde-oscuro); }
+.pg-btn.ghost { color: var(--verde-oscuro); background: #fff; }
+.pg-btn.ghost:hover:not(:disabled) { color: #fff; }
+.pg-btn:disabled { opacity: .4; cursor: not-allowed; }
+.pg-bar button:focus-visible { outline: 3px solid var(--acento); outline-offset: 2px; }
+@media (max-width: 640px) {
+    .pg-info b { display: none; }
+    .pg-btn { padding: .55rem .9rem; font-size: .82rem; }
+    .pg-bar { gap: .4rem; padding: .5rem .6rem; }
+}
+
+
+/* Burbujas del equipo */
+.team-sec { padding: 5rem 0 3rem; }
+.team { text-align: center; }
+.team-title { font-size: 1.5rem; font-weight: 800; color: #1A1D24; }
+.team-sub { margin: .3rem 0 .2rem; font-weight: 600; color: var(--verde-oscuro); }
+.team-bubbles { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 2rem 2.6rem; }
+.bubble { width: 9.5rem; margin: 0; animation: pg-float 4.5s ease-in-out infinite; }
+.bubble:nth-child(2) { animation-delay: -1s; } .bubble:nth-child(3) { animation-delay: -2s; } .bubble:nth-child(4) { animation-delay: -3s; }
+.bubble-c { position: relative; overflow: hidden; padding: 0; border: 0; display: grid; place-items: center; width: 7.5rem; height: 7.5rem; margin: 0 auto .8rem; font-size: 2.2rem; font-weight: 800; color: #fff; border-radius: 50%; background: radial-gradient(circle at 30% 28%, #5fd98a, var(--verde) 60%, var(--verde-oscuro)); box-shadow: 0 10px 24px rgba(8,135,50,.3), inset 0 -6px 12px rgba(0,0,0,.15); transition: transform .25s; }
+.bubble:hover .bubble-c { transform: scale(1.1); }
+.bubble-lg { width: 11rem; }
+.bubble-lg .bubble-c { width: 9.5rem; height: 9.5rem; font-size: 2.8rem; background: radial-gradient(circle at 30% 28%, #ffc266, var(--acento) 60%, #c96f00); box-shadow: 0 10px 24px rgba(255,143,0,.35), inset 0 -6px 12px rgba(0,0,0,.15); }
+.bubble figcaption b { display: block; font-size: 1rem; color: #1A1D24; }
+.bubble figcaption small { color: #6b7280; font-size: .82rem; }
+@keyframes pg-float { 50% { transform: translateY(-9px); } }
+@media (prefers-reduced-motion: reduce) { .bubble { animation: none; } .pg-prog i { transition: none; } }
+
+.bubble-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.bubble-img[hidden] { display: none; }
+
+/* Pie de página alineado a la derecha */
+.footer .footer-content { align-items: stretch; text-align: left; }
+.footer-grid { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 2rem 3rem; width: 100%; }
+.footer-brand { display: flex; flex-direction: column; align-items: flex-start; max-width: 22rem; }
+.footer-brand .footer-logo { margin-bottom: 1rem; }
+.footer-project { margin: 0 0 1.2rem; font-size: .9rem; line-height: 1.5; color: rgba(255,255,255,.8); }
+.footer-brand .footer-social { margin-bottom: 0; justify-content: flex-start; }
+.footer-info { margin-left: auto; max-width: 30rem; text-align: right; }
+.footer-info h4 { margin-bottom: .7rem; font-size: 1.2rem; font-weight: 800; line-height: 1.3; color: #fff; }
+.footer-info .footer-copyright { margin: .3rem 0; font-size: .92rem; color: rgba(255,255,255,.78); }
+.footer-bottom .footer-bottom-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; }
+.footer-rights { font-size: .8rem; color: rgba(255,255,255,.6); }
+.footer-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: .2rem .6rem; }
+@media (max-width: 700px) {
+    .footer-grid { flex-direction: column; align-items: flex-end; }
+    .footer-brand { align-items: flex-end; margin-left: auto; text-align: right; }
+    .footer-brand .footer-social { justify-content: flex-end; }
+    .footer-bottom .footer-bottom-row { justify-content: flex-end; text-align: right; }
+}
+
+/* Pie: información pegada a la esquina derecha + emblema del equipo */
+.footer .container.footer-content { max-width: none; width: 100%; padding: 0 1.5rem 0 2rem; }
+.footer-bottom .container.footer-bottom-row { max-width: none; padding: 0 1.5rem 0 2rem; }
+.footer-info-head { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; margin-bottom: .9rem; }
+.footer-info-head h4 { margin: 0 0 .15rem; }
+.footer-info-head .footer-copyright { margin: 0; }
+.footer-emblem { flex: 0 0 auto; width: 4.4rem; height: 4.4rem; padding: .35rem; object-fit: contain; background: #fff; border-radius: 50%; box-shadow: 0 0 0 3px var(--verde), 0 8px 22px rgba(0,0,0,.35); }
+
+/* Los títulos no deben quedar tapados por el menú fijo */
+#como-funciona, #modulos, #integracion, #para-empresas, #glosario, #juegos, #recursos, #equipo { padding-top: clamp(7rem, 12vw, 8.5rem); }
+a.btn-white { text-decoration: none; }
