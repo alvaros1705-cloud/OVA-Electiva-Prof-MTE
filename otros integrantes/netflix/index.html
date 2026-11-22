@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OVA de Machine Learning y Automatización Inteligente de Procesos: ML, IPA, RPA, Power Automate y n8n. Electiva Profesional I, Universidad Simón Bolívar.">
+    <meta name="keywords" content="machine learning, automatización inteligente, IPA, RPA, Power Automate, n8n">
+    <meta name="author" content="Equipo Samsung G7">
+    <title>Electiva Profesional I</title>
+    <link rel="icon" type="image/png" href="images/logo-usb.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/games.css">
+    <link rel="stylesheet" href="css/pager.css">
+    <link rel="stylesheet" href="css/dark.css">
+    <script>try{var t=localStorage.getItem("ova-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}</script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Navigation -->
+    <nav class="main-nav" id="mainNav">
+        <div class="nav-strip"></div>
+        <div class="nav-container">
+            <a href="https://www.unisimon.edu.co/" class="logo" aria-label="Universidad Simón Bolívar">
+                <img src="images/logo-usb.png" alt="Universidad Simón Bolívar">
+                
+            </a>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="active">Inicio</a></li>
+                <li><a href="#como-funciona">Objetivos</a></li>
+                <li><a href="#modulos">Módulos</a></li>
+                <li><a href="#glosario">Glosario</a></li>
+                <li><a href="#juegos">Juegos</a></li>
+                <li><a href="#recursos">Recursos</a></li>
+                <li><a href="#equipo">Equipo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <a href="#modulos" class="btn-login">Empezar</a>
+
+            </ul>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <div class="nav-stripe" aria-hidden="true"></div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#" class="active">Inicio</a>
+            <a href="#como-funciona">Objetivos</a>
+            <a href="#modulos">Módulos</a>
+            <a href="#glosario">Glosario</a>
+            <a href="#juegos">Juegos</a>
+            <a href="#recursos">Recursos</a>
+            <a href="#equipo">Equipo</a>
+            <a href="#contacto">Contacto</a>
+            <a href="#modulos" class="btn-login-mobile">Empezar</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-triangle"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>
+                    ELECTIVA PROFESIONAL I
+                    <span class="typing-text" id="typingText"></span>
+                </h1>
+                <p class="hero-subtitle">Objeto Virtual de Aprendizaje (OVA): Machine Learning y Automatización Inteligente de Procesos. De los datos a los flujos automáticos: ML, IPA, RPA, Power Automate y n8n.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#modulos" class="btn-white">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                        Ver módulos
+                    </a>
+                    <a href="#glosario" class="btn-blue">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        Glosario
+                    </a>
+                    <a href="#recursos" class="btn-orange">
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        Recursos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Cards -->
+    <section class="quick-cards" aria-label="Accesos rápidos">
+        <div class="quick-cards-box">
+            <div class="quick-cards-grid">
+                <a href="#modulo-1" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <h3>Machine Learning</h3>
+                    <p>Tipos de aprendizaje, flujo de trabajo, métricas y código en Python.</p>
+                </a>
+                <a href="#modulo-2" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    <h3>Automatización inteligente</h3>
+                    <p>IPA: RPA + IA con OCR, NLP, minería de procesos y supervisión humana.</p>
+                </a>
+                <a href="#modulo-3" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3H4.99c-1.11 0-1.98.9-1.98 2L3 19c0 1.1.88 2 1.99 2H19c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 12h-4c0 1.66-1.35 3-3 3s-3-1.34-3-3H4.99V5H19v10zm-3-5h-2V7h-4v3H8l4 4 4-4z"/></svg>
+                    <h3>RPA</h3>
+                    <p>Arquitectura, robots atendidos y desatendidos, selección de procesos y gobernanza.</p>
+                </a>
+                <a href="#modulo-4" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                    <h3>Power Automate y n8n</h3>
+                    <p>Flujos, triggers, conectores, webhooks y práctica guiada.</p>
+                </a>
+                <a href="#modulos" class="quick-card">
+                    <svg class="quick-card-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                    <h3>Caso integrador</h3>
+                    <p>Diseña una solución completa para la bandeja de la Facultad.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="caracteristicas">
+        <div class="container">
+            <div class="svc-showcase">
+                <div class="svc-intro reveal reveal-left">
+                    <span class="svc-eyebrow">Introducción</span>
+                    <h2>Resumen de la <span class="svc-green">guía OVA</span></h2>
+                    <p>Esta guía sigue una progresión lógica: primero entiendes cómo aprenden las máquinas (<strong>ML</strong>), luego cómo se combina con la automatización (<strong>IPA</strong>), después la tecnología base de los robots de software (<strong>RPA</strong>) y, por último, practicas con herramientas reales (<strong>Power Automate y n8n</strong>).</p>
+                </div>
+
+                <div class="svc-visual reveal reveal-right reveal-delay-2">
+                    <span class="svc-shape svc-shape-a" aria-hidden="true"></span>
+                    <span class="svc-shape svc-shape-b" aria-hidden="true"></span>
+                    <span class="svc-shape svc-shape-c" aria-hidden="true"></span>
+                    <img src="images/electiva-profesional-nueva.jpg" alt="Estudiantes de la Universidad Simón Bolívar trabajando juntos en un portátil durante Electiva Profesional I" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objetivos de aprendizaje -->
+    <section class="how-it-works" id="como-funciona">
+        <div class="container">
+            <div class="section-header hiw-header">
+                <span class="svc-eyebrow">Al terminar la guía serás capaz de…</span>
+                <h2>Objetivos de <span class="svc-green">aprendizaje</span></h2>
+            </div>
+
+            <div class="hiw-grid">
+<div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">01.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Comprender">
+                            <circle cx="50" cy="50" r="50" fill="#088732"/>
+                            <circle cx="42" cy="56" r="34" fill="#4fb877" opacity=".5"/>
+                            <path d="M50 14c-14 0-24 10-24 23 0 9 5 15 10 20 3 3 4 6 4 10h20c0-4 1-7 4-10 5-5 10-11 10-20 0-13-10-23-24-23z" fill="#f8d56b"/>
+                            <path d="M44 38l6 8 6-8" stroke="#f2a93b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M50 46v14" stroke="#f2a93b" stroke-width="3" stroke-linecap="round"/>
+                            <rect x="38" y="68" width="24" height="7" rx="3" fill="#3b4a8c"/>
+                            <rect x="41" y="77" width="18" height="7" rx="3.5" fill="#3b4a8c"/>
+                            <path d="M50 4v6M20 18l4 4M80 18l-4 4M10 40h6M84 40h6" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Explicar</h3>
+                    <p>Explicar qué es el machine learning, sus tipos y cómo se evalúa un modelo.</p>
+                </div>
+
+                <div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">02.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Distinguir">
+                            <circle cx="50" cy="50" r="50" fill="#088732"/>
+                            <circle cx="42" cy="56" r="34" fill="#4fb877" opacity=".5"/>
+                            <rect x="10" y="22" width="34" height="56" rx="4" fill="#fff"/>
+                            <rect x="56" y="22" width="34" height="56" rx="4" fill="#fff"/>
+                            <rect x="10" y="22" width="34" height="9" rx="4" fill="#3b4a8c"/>
+                            <rect x="56" y="22" width="34" height="9" rx="4" fill="#f8d56b"/>
+                            <rect x="16" y="39" width="22" height="3" rx="1.5" fill="#9adbf5"/>
+                            <rect x="16" y="48" width="22" height="3" rx="1.5" fill="#9adbf5"/>
+                            <rect x="16" y="57" width="14" height="3" rx="1.5" fill="#9adbf5"/>
+                            <rect x="62" y="39" width="22" height="3" rx="1.5" fill="#f2a93b"/>
+                            <rect x="62" y="48" width="22" height="3" rx="1.5" fill="#f2a93b"/>
+                            <rect x="62" y="57" width="14" height="3" rx="1.5" fill="#f2a93b"/>
+                            <path d="M38 12h24M56 6l6 6-6 6M44 6l-6 6 6 6" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Diferenciar</h3>
+                    <p>Diferenciar automatización tradicional, RPA y automatización inteligente (IPA).</p>
+                </div>
+
+                <div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">03.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Evaluar">
+                            <circle cx="50" cy="50" r="50" fill="#088732"/>
+                            <circle cx="42" cy="56" r="34" fill="#4fb877" opacity=".5"/>
+                            <rect x="47" y="14" width="6" height="64" rx="3" fill="#3b4a8c"/>
+                            <rect x="30" y="82" width="40" height="8" rx="4" fill="#3b4a8c"/>
+                            <circle cx="50" cy="14" r="6" fill="#f8d56b" stroke="#3b4a8c" stroke-width="3"/>
+                            <path d="M16 30h68" stroke="#3b4a8c" stroke-width="5" stroke-linecap="round"/>
+                            <path d="M16 30L8 56M16 30l8 26M84 30l-8 26M84 30l8 26" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M4 56h24a12 12 0 0 1-24 0z" fill="#f8d56b"/>
+                            <path d="M72 56h24a12 12 0 0 1-24 0z" fill="#fff"/>
+                        </svg>
+                    </div>
+                    <h3>Seleccionar</h3>
+                    <p>Seleccionar procesos adecuados para automatizar y justificar tu decisión con criterios técnicos.</p>
+                </div>
+
+                <div class="hiw-card">
+                    <span class="hiw-num" aria-hidden="true">04.</span>
+                    <div class="hiw-icon">
+                        <svg viewBox="0 0 100 100" role="img" aria-label="Identificar">
+                            <circle cx="50" cy="50" r="50" fill="#088732"/>
+                            <circle cx="42" cy="56" r="34" fill="#4fb877" opacity=".5"/>
+                            <g transform="translate(50 50) scale(.88)">
+                                <g fill="#3b4a8c">
+                                    <rect x="-6" y="-40" width="12" height="16" rx="2"/>
+                                    <rect x="-6" y="24" width="12" height="16" rx="2"/>
+                                    <rect x="-40" y="-6" width="16" height="12" rx="2"/>
+                                    <rect x="24" y="-6" width="16" height="12" rx="2"/>
+                                    <rect x="-6" y="-40" width="12" height="16" rx="2" transform="rotate(45)"/>
+                                    <rect x="-6" y="24" width="12" height="16" rx="2" transform="rotate(45)"/>
+                                    <rect x="-40" y="-6" width="16" height="12" rx="2" transform="rotate(45)"/>
+                                    <rect x="24" y="-6" width="16" height="12" rx="2" transform="rotate(45)"/>
+                                </g>
+                                <circle r="29" fill="#3b4a8c"/>
+                                <circle r="19" fill="#fff"/>
+                                <circle r="9" fill="#f8d56b"/>
+                                <circle r="3.5" fill="#3b4a8c"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3>Diseñar</h3>
+                    <p>Diseñar un flujo de automatización con triggers, acciones y supervisión humana en Power Automate o n8n.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulos de la guía OVA -->
+    <section class="ova-sec" id="modulos">
+        <div class="container">
+            <div class="section-header hiw-header">
+                <span class="svc-eyebrow">Ruta de aprendizaje</span>
+                <h2>Módulos de la <span class="svc-green">guía</span></h2>
+            </div>
+            <div class="ova-list">
+<details class="ova-mod" id="modulo-1" open><summary><span class="ova-n">1</span><span>Machine Learning (visión general)<small>60 min</small></span></summary><div class="ova-body"><p><strong>Machine learning</strong> es una rama de la IA en la que un sistema <strong>aprende patrones a partir de datos</strong> y mejora con la experiencia, en lugar de seguir solo reglas escritas a mano (Red Hat, s. f.-a). Jerarquía: <em>IA ⊃ ML ⊃ Deep Learning</em>.</p>
+<h4>Tipos de aprendizaje</h4><ul><li><strong>Supervisado:</strong> datos etiquetados; clasificación y regresión (detectar spam, predecir precios).</li><li><strong>No supervisado:</strong> sin etiquetas; clustering (segmentar clientes).</li><li><strong>Por refuerzo:</strong> un agente aprende por recompensas (robot que aprende a caminar).</li></ul>
+<h4>Flujo de un proyecto de ML</h4><ol><li>Definir problema y métrica</li><li>Recolectar datos</li><li>Limpiar y preparar</li><li>Dividir en entrenamiento y prueba</li><li>Entrenar</li><li>Evaluar</li><li>Desplegar y monitorear</li></ol>
+<h4>Métricas básicas (matriz de confusión: VP, FP, FN, VN)</h4><table><tr><th>Métrica</th><th>Fórmula</th></tr><tr><td>Exactitud</td><td>(VP + VN) / total</td></tr><tr><td>Precisión</td><td>VP / (VP + FP)</td></tr><tr><td>Recall</td><td>VP / (VP + FN)</td></tr><tr><td>F1</td><td>2 · (precisión · recall) / (precisión + recall)</td></tr></table>
+<p class="ova-note"><strong>Sobreajuste:</strong> el modelo memoriza el entrenamiento y falla con datos nuevos. <strong>Subajuste:</strong> es tan simple que no aprende ni los datos de entrenamiento. Por eso se reserva un conjunto de prueba.</p></div></details>
+<details class="ova-mod" id="modulo-2"><summary><span class="ova-n">2</span><span>Automatización Inteligente de Procesos (IPA)<small>45 min</small></span></summary><div class="ova-body"><p>La <strong>IPA</strong> combina la RPA con IA (aprendizaje automático, NLP, lectura de documentos) para automatizar procesos que requerían interpretar información y decidir.</p>
+<table><tr><th>Nivel</th><th>Qué hace</th><th>Datos</th></tr><tr><td>Tradicional</td><td>Scripts o macros con reglas fijas</td><td>Estructurados</td></tr><tr><td>RPA</td><td>Un robot imita clics y teclado con reglas definidas</td><td>Estructurados y digitales</td></tr><tr><td>IPA</td><td>Suma IA para interpretar, clasificar y decidir</td><td>También no estructurados (correos, PDF, imágenes)</td></tr></table>
+<h4>Ciclo de la automatización inteligente</h4><ol><li>Descubrir procesos</li><li>Analizar y priorizar</li><li>Automatizar</li><li>Medir resultados</li><li>Optimizar y reentrenar</li></ol>
+<h4>Ejemplo: factura inteligente</h4><p>Llega el PDF por correo → el OCR extrae los campos → el modelo valida y calcula su confianza → si es baja, revisa una persona → RPA registra en el ERP → se confirma y se miden tiempos.</p>
+<p class="ova-note"><strong>Idea clave:</strong> la IA no reemplaza el control; lo hace más eficiente (human-in-the-loop). Celonis (s. f.) señala que entre el 30 % y el 50 % de las iniciativas iniciales de RPA fracasan por elegir procesos equivocados.</p></div></details>
+<details class="ova-mod" id="modulo-3"><summary><span class="ova-n">3</span><span>RPA: Automatización Robótica de Procesos<small>45 min</small></span></summary><div class="ova-body"><p><strong>RPA</strong> usa robots de software para realizar tareas repetitivas que antes hacían las personas (Red Hat, s. f.-b). Un bot hace lo que se le indica y no se adapta por sí solo a cambios del sistema.</p>
+<h4>Arquitectura básica</h4><ul><li><strong>Studio / Designer:</strong> donde se diseña el flujo.</li><li><strong>Robot (bot):</strong> ejecuta las acciones.</li><li><strong>Orquestador:</strong> programa, supervisa, registra logs y custodia credenciales.</li><li><strong>Colas y repositorio:</strong> trabajo pendiente y versiones.</li></ul>
+<table><tr><th></th><th>Atendido</th><th>Desatendido</th></tr><tr><td>Dónde corre</td><td>Equipo del usuario</td><td>Servidores o máquinas virtuales</td></tr><tr><td>Quién lo activa</td><td>La persona</td><td>Horario, evento o cola</td></tr></table>
+<h4>¿Qué conviene automatizar?</h4><p><strong>Sí:</strong> reglas claras, alto volumen, datos estructurados, aplicaciones estables, pocas excepciones. <strong>No (por ahora):</strong> procesos mal definidos o ineficientes (primero se rediseñan), juicio experto en cada caso, interfaz cambiante, muy bajo volumen.</p>
+<p class="ova-note"><strong>Gobernanza:</strong> responsable de cada bot, control de cambios y pruebas, bóveda de credenciales, registros de ejecución y auditoría.</p></div></details>
+<details class="ova-mod" id="modulo-4"><summary><span class="ova-n">4</span><span>Power Automate y n8n<small>60 min</small></span></summary><div class="ova-body"><p><strong>Vocabulario:</strong> flujo (workflow), <em>trigger</em> (evento que lo inicia), acción/nodo, conector, contenido dinámico, condición y bucle, <em>webhook</em> (URL que recibe una petición HTTP y dispara el flujo).</p>
+<table><tr><th>Criterio</th><th>Power Automate</th><th>n8n</th></tr><tr><td>Ecosistema</td><td>Integrado con Microsoft 365</td><td>Neutral, cientos de servicios</td></tr><tr><td>Despliegue</td><td>Nube de Microsoft</td><td>Autoalojado o nube</td></tr><tr><td>RPA de escritorio</td><td>Sí (Power Automate Desktop)</td><td>No es su enfoque</td></tr><tr><td>Código</td><td>Bajo código</td><td>Nodos JavaScript/Python</td></tr></table>
+<h4>Práctica guiada: del correo a la hoja de cálculo</h4><p>Cada vez que llegue un correo, guarda remitente, asunto y fecha en una hoja. <strong>Power Automate:</strong> flujo de nube automatizado → trigger «Cuando llega un correo electrónico nuevo (V3)» → «Agregar una fila a una tabla» (Excel Online). <strong>n8n:</strong> Gmail Trigger → Edit Fields (Set) → Google Sheets – Append row.</p>
+<p class="ova-note"><strong>Mini-reto:</strong> agrega una condición: si el asunto contiene «urgente», envía además una notificación.</p></div></details>
+<details class="ova-mod" id="caso"><summary><span class="ova-n">5</span><span>Caso integrador: la bandeja de la Facultad<small>30 min</small></span></summary><div class="ova-body"><p>La Facultad de Ingeniería recibe cada día cientos de correos de estudiantes (certificados, reingresos, fallas, consultas). Hoy dos personas los clasifican a mano, copian los datos y reenvían cada caso, con demoras y errores de digitación.</p><p><strong>Tu misión:</strong> diseñar una solución de automatización inteligente: proceso y objetivo, rol del ML/NLP, flujo o robot, herramienta elegida, intervención humana, riesgos e indicador de éxito.</p></div></details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qué es la transformación empresarial: fondo de video + 6 dimensiones -->
+    <section class="tech-stack" id="integracion">
+        <video class="int-video" autoplay muted loop playsinline preload="auto" poster="images/video-hero-bg.jpg" aria-hidden="true">
+            <source src="videos/integracion-bg.webm" type="video/webm">
+            <source src="videos/integracion-bg.mp4" type="video/mp4">
+        </video>
+        <div class="int-overlay" aria-hidden="true"></div>
+        <div class="container">
+            <div class="section-header hiw-header">
+                <span class="svc-eyebrow">Módulo 2 · IPA</span>
+                <h2>Las piezas de una solución <span class="svc-green">IPA</span></h2>
+                <p>Una solución de automatización inteligente combina varias tecnologías, cada una con un rol distinto dentro del proceso.</p>
+                <p>La minería de procesos se recomienda como paso previo para decidir qué automatizar primero (Celonis, s. f.).</p>
+            </div>
+
+            <div class="int-grid">
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#088732"/><circle cx="42" cy="56" r="32" fill="#04662C" opacity=".55"/><circle cx="48" cy="54" r="28" fill="#fff"/><circle cx="48" cy="54" r="20" fill="#088732"/><circle cx="48" cy="54" r="12" fill="#fff"/><circle cx="48" cy="54" r="5" fill="#FF8F00"/><path d="M48 54L76 26" stroke="#FF8F00" stroke-width="4.5" stroke-linecap="round"/><path d="M68 24h10v10" stroke="#FF8F00" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                    <h3>RPA</h3>
+                    <p>Ejecuta las tareas sobre las aplicaciones. Ej.: registrar el dato en el ERP.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#088732"/><circle cx="42" cy="56" r="32" fill="#04662C" opacity=".55"/><path d="M24 50a26 26 0 0 1 46-16" stroke="#fff" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M78 20v22H56z" fill="#fff" transform="rotate(8 70 34)"/><path d="M76 50a26 26 0 0 1-46 16" stroke="#FF8F00" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M22 80V58h22z" fill="#FF8F00" transform="rotate(8 30 66)"/></svg></div>
+                    <h3>Machine learning</h3>
+                    <p>Predice o clasifica con base en datos históricos. Ej.: detectar una factura sospechosa.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#088732"/><circle cx="42" cy="56" r="32" fill="#04662C" opacity=".55"/><circle cx="26" cy="42" r="8" fill="#A6F4C0"/><path d="M12 72a14 14 0 0 1 28 0z" fill="#A6F4C0"/><circle cx="74" cy="42" r="8" fill="#A6F4C0"/><path d="M60 72a14 14 0 0 1 28 0z" fill="#A6F4C0"/><circle cx="50" cy="34" r="11" fill="#fff"/><path d="M30 78a20 20 0 0 1 40 0z" fill="#FF8F00"/></svg></div>
+                    <h3>NLP</h3>
+                    <p>Entiende texto escrito. Ej.: clasificar un correo por su intención.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#088732"/><circle cx="42" cy="56" r="32" fill="#04662C" opacity=".55"/><rect x="16" y="22" width="46" height="32" rx="9" fill="#fff"/><path d="M26 54l-2 12 14-12z" fill="#fff"/><circle cx="28" cy="38" r="3.2" fill="#088732"/><circle cx="39" cy="38" r="3.2" fill="#088732"/><circle cx="50" cy="38" r="3.2" fill="#088732"/><rect x="42" y="44" width="42" height="30" rx="9" fill="#FF8F00"/><path d="M74 74l2 11-13-11z" fill="#FF8F00"/><path d="M63 66c-9-5-12-9-12-13 0-3 2-5 5-5 3 0 5 2 7 4 2-2 4-4 7-4 3 0 5 2 5 5 0 4-3 8-12 13z" fill="#fff" transform="translate(-1 -3) scale(.95)"/></svg></div>
+                    <h3>OCR</h3>
+                    <p>Convierte imágenes o PDF en datos utilizables. Ej.: extraer número, fecha y total de una factura.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#088732"/><circle cx="42" cy="56" r="32" fill="#04662C" opacity=".55"/><path d="M28 32v34c0 5 10 9 22 9s22-4 22-9V32z" fill="#fff"/><ellipse cx="50" cy="32" rx="22" ry="9" fill="#A6F4C0"/><path d="M28 46c0 5 10 9 22 9s22-4 22-9M28 58c0 5 10 9 22 9s22-4 22-9" stroke="#088732" stroke-width="3" fill="none"/><circle cx="64" cy="26" r="9" fill="#FF8F00"/><path d="M60 26h8M64 22v8" stroke="#fff" stroke-width="3" stroke-linecap="round"/></svg></div>
+                    <h3>Minería de procesos</h3>
+                    <p>Analiza registros de eventos para ver cómo se ejecutan realmente los procesos.</p>
+                </div>
+
+                <div class="int-card">
+                    <div class="int-icon"><svg viewBox="0 0 100 100" role="img" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#088732"/><circle cx="42" cy="56" r="32" fill="#04662C" opacity=".55"/><rect x="18" y="24" width="64" height="52" rx="5" fill="#fff"/><rect x="18" y="24" width="20" height="52" rx="4" fill="#A6F4C0"/><rect x="38" y="24" width="24" height="26" fill="#FF8F00"/><rect x="62" y="50" width="20" height="26" rx="4" fill="#A6F4C0"/><path d="M38 24v52M62 24v52M18 50h64" stroke="#088732" stroke-width="2.5"/><rect x="18" y="24" width="64" height="52" rx="5" fill="none" stroke="#088732" stroke-width="2.5"/></svg></div>
+                    <h3>Orquestación / BPM</h3>
+                    <p>Coordina personas, robots y sistemas. Ej.: asignar el caso dudoso a un revisor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Para las Empresas: pasos + mosaico -->
+    <section class="steps-sec" id="para-empresas">
+        <div class="container">
+            <div class="steps-grid">
+                <div class="steps-left">
+                    <div class="steps-head reveal">
+                        <span class="svc-eyebrow">Módulo 3 · RPA</span>
+                        <h2 class="steps-title">Ciclo de vida de un <span class="svc-green">proyecto RPA</span></h2>
+                    </div>
+
+                    <ol class="steps-list">
+                        <li class="steps-item reveal reveal-delay-1">
+                            <span class="steps-num" aria-hidden="true">1</span>
+                            <div>
+                                <h3>Identificar procesos</h3>
+                                <p>Se eligen los procesos que cumplen los criterios de un buen candidato.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-2">
+                            <span class="steps-num" aria-hidden="true">2</span>
+                            <div>
+                                <h3>Documentar (PDD)</h3>
+                                <p>El Process Definition Document describe paso a paso cómo se ejecuta hoy el proceso; sin él, el bot automatiza suposiciones.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-3">
+                            <span class="steps-num" aria-hidden="true">3</span>
+                            <div>
+                                <h3>Desarrollar el bot</h3>
+                                <p>Se construye el flujo en el Studio / Designer.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-4">
+                            <span class="steps-num" aria-hidden="true">4</span>
+                            <div>
+                                <h3>Probar</h3>
+                                <p>Se valida el bot con control de cambios y pruebas.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-4">
+                            <span class="steps-num" aria-hidden="true">5</span>
+                            <div>
+                                <h3>Desplegar</h3>
+                                <p>El robot se publica y el orquestador programa sus ejecuciones.</p>
+                            </div>
+                        </li>
+                        <li class="steps-item reveal reveal-delay-4">
+                            <span class="steps-num" aria-hidden="true">6</span>
+                            <div>
+                                <h3>Monitorear y mantener</h3>
+                                <p>Registros de ejecución, auditoría y un responsable para cada bot.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+
+                <div class="steps-mosaic-wrap">
+                    <div class="steps-mosaic" aria-hidden="true">
+                        <figure class="mz mz-a reveal reveal-scale"><img src="images/mosaic-reunion.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-b reveal reveal-scale reveal-delay-1"><img src="images/mosaic-transformacion.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-c reveal reveal-scale reveal-delay-2"><img src="images/mosaic-manos.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-d reveal reveal-scale reveal-delay-2"><img src="images/mosaic-apreton.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-e reveal reveal-scale reveal-delay-3"><img src="images/mosaic-equipo.jpg" alt="" loading="lazy"></figure>
+                        <figure class="mz mz-f reveal reveal-scale reveal-delay-4"><img src="images/mosaic-documentos.png" alt="" loading="lazy"></figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="glosario">
+        <div class="container">
+            <div class="section-header">
+                <h2>GLOSARIO</h2>
+                <p>Términos clave de la guía. Selecciona uno para ver su definición.</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-questions" id="faqQuestions">
+                    <button class="faq-btn active" data-index="0">
+                        Aprendizaje supervisado
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="1">
+                        Aprendizaje no supervisado
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="2">
+                        Aprendizaje por refuerzo
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="3">
+                        Sobreajuste
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="4">
+                        Matriz de confusión
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="5">
+                        IPA
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="6">
+                        OCR
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="7">
+                        NLP
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="8">
+                        Minería de procesos
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="9">
+                        RPA
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="10">
+                        Orquestador
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="11">
+                        Trigger
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="12">
+                        Webhook
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <button class="faq-btn" data-index="13">
+                        Human-in-the-loop
+                        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                </div>
+
+                <div class="faq-answer" id="faqAnswer">
+                    <div class="answer-header">
+                        <div class="answer-logo">G</div>
+                        <div>
+                            <div class="answer-title">Glosario OVA</div>
+                            <div class="answer-subtitle">Definición</div>
+                        </div>
+                    </div>
+                    <div class="answer-content" id="answerContent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Zona de juegos -->
+    <section class="jg-sec" id="juegos">
+        <div class="container">
+            <div class="section-header hiw-header">
+                <span class="svc-eyebrow">Practica jugando</span>
+                <h2>Zona de <span class="svc-green">juegos</span></h2>
+                <p>Seis retos para repasar los módulos: responde, une, clasifica, ordena, atrapa y reacciona. Tu mejor puntaje de cada juego se guarda en este navegador.</p>
+            </div>
+
+            <div class="jg-wrap">
+                <div class="jg-board" aria-label="Tu progreso">
+                    <div class="jg-total"><strong id="jgTotal">0</strong><span>de 650 puntos · <b id="jgRank">Aprendiz</b></span></div>
+                    <div class="jg-bests">
+                        <div class="jg-best">Quiz<b id="jgBest-quiz">0</b></div>
+                        <div class="jg-best">Memoria<b id="jgBest-memory">0</b></div>
+                        <div class="jg-best">Clasificar<b id="jgBest-classify">0</b></div>
+                        <div class="jg-best">Ordenar<b id="jgBest-order">0</b></div>
+                        <div class="jg-best">Robot<b id="jgBest-robot">0</b></div>
+                        <div class="jg-best">Cinta<b id="jgBest-belt">0</b></div>
+                    </div>
+                    <button type="button" class="jg-reset" id="jgReset">Reiniciar récords</button>
+                </div>
+
+                <div class="jg-tabs" role="tablist" aria-label="Juegos">
+                    <button type="button" role="tab" class="jg-tab" id="jg-tab-quiz" data-game="quiz" aria-controls="jg-panel-quiz" aria-selected="true">Quiz relámpago</button>
+                    <button type="button" role="tab" class="jg-tab" id="jg-tab-memory" data-game="memory" aria-controls="jg-panel-memory" aria-selected="false" tabindex="-1">Memoria</button>
+                    <button type="button" role="tab" class="jg-tab" id="jg-tab-classify" data-game="classify" aria-controls="jg-panel-classify" aria-selected="false" tabindex="-1">¿ML, RPA o IPA?</button>
+                    <button type="button" role="tab" class="jg-tab" id="jg-tab-order" data-game="order" aria-controls="jg-panel-order" aria-selected="false" tabindex="-1">Ordena el flujo</button>
+                    <button type="button" role="tab" class="jg-tab" id="jg-tab-robot" data-game="robot" aria-controls="jg-panel-robot" aria-selected="false" tabindex="-1">Robot recolector</button>
+                    <button type="button" role="tab" class="jg-tab" id="jg-tab-belt" data-game="belt" aria-controls="jg-panel-belt" aria-selected="false" tabindex="-1">Cinta de correos</button>
+                </div>
+
+                <div class="jg-stage">
+                    <div role="tabpanel" id="jg-panel-quiz" aria-labelledby="jg-tab-quiz"></div>
+                    <div role="tabpanel" id="jg-panel-memory" aria-labelledby="jg-tab-memory" hidden></div>
+                    <div role="tabpanel" id="jg-panel-classify" aria-labelledby="jg-tab-classify" hidden></div>
+                    <div role="tabpanel" id="jg-panel-order" aria-labelledby="jg-tab-order" hidden></div>
+                    <div role="tabpanel" id="jg-panel-robot" aria-labelledby="jg-tab-robot" hidden></div>
+                    <div role="tabpanel" id="jg-panel-belt" aria-labelledby="jg-tab-belt" hidden></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="recursos">
+        <div class="container">
+            <div class="section-header">
+                <h2>RECURSOS MULTIMEDIA</h2>
+                <p>Videos, podcasts y documentación para reforzar cada módulo. Desliza para ver más.</p>
+            </div>
+
+            <div class="testimonials-carousel" id="testimonialsCarousel">
+                <div class="testimonial-card">
+                    <div class="ova-tag">▶ VIDEO · Español</div>
+                    <h3>Mini-curso de aprendizaje automático (Serrano.Academy)</h3>
+                    <p>Introducción visual a las ideas centrales del aprendizaje automático. Míralo antes de la actividad 1.2.</p>
+                    <a class="testimonial-author" href="https://www.youtube.com/watch?v=5nmwHyAudlQ" target="_blank" rel="noopener">
+                        <div class="author-avatar">S</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">▶ VIDEO · Español</div>
+                    <h3>Módulo 3: Machine learning (Universidad Continental)</h3>
+                    <p>Video de unos 13 minutos sobre aplicaciones del ML. Refuerza el flujo de trabajo (1.3).</p>
+                    <a class="testimonial-author" href="https://www.youtube.com/watch?v=dZPF9W4N8Qk" target="_blank" rel="noopener">
+                        <div class="author-avatar">U</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">♫ AUDIO · Español</div>
+                    <h3>Podcast Trycore: características de la hiperautomatización</h3>
+                    <p>Qué distingue a los proyectos de hiperautomatización.</p>
+                    <a class="testimonial-author" href="https://creators.spotify.com/pod/profile/trycore/episodes/Caractersticas-de-la-hiperautomatizacin--TryTech-e12uuk5" target="_blank" rel="noopener">
+                        <div class="author-avatar">T</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">♫ AUDIO · Español</div>
+                    <h3>Charla: impacto de la IA en la automatización de procesos</h3>
+                    <p>Beneficios y riesgos de la IA en procesos automatizados.</p>
+                    <a class="testimonial-author" href="https://aklein1995.github.io/talks/moving-robots-2025" target="_blank" rel="noopener">
+                        <div class="author-avatar">A</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">♫ AUDIO · Inglés</div>
+                    <h3>Bernard Marr con Pascal Bornet: Intelligent Automation</h3>
+                    <p>Entrevista con un experto; opcional para practicar comprensión auditiva.</p>
+                    <a class="testimonial-author" href="https://podcasts.bernardmarr.com/1045873/6654106" target="_blank" rel="noopener">
+                        <div class="author-avatar">B</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">▶ VIDEO · Español</div>
+                    <h3>Webinar: Qué es un RPA y su aplicación en la industria (IEBS)</h3>
+                    <p>Conceptos, beneficios y casos reales de RPA. Puede pedir registro previo.</p>
+                    <a class="testimonial-author" href="https://www.iebschool.com/es-mx/recursos/webinar-rpa-robotic-process-automation-aplicacion-industria" target="_blank" rel="noopener">
+                        <div class="author-avatar">I</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">▶ VIDEO · Inglés</div>
+                    <h3>Power Automate Tutorial for Beginners (Kevin Stratvert)</h3>
+                    <p>Tutorial paso a paso con capítulos; activa los subtítulos.</p>
+                    <a class="testimonial-author" href="https://www.youtube.com/watch?v=dDO4Y4aDYXw" target="_blank" rel="noopener">
+                        <div class="author-avatar">K</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">▶ VIDEO · Inglés</div>
+                    <h3>Canal oficial de n8n en YouTube</h3>
+                    <p>Tutoriales oficiales y ejemplos de flujos.</p>
+                    <a class="testimonial-author" href="https://www.youtube.com/@n8n-io" target="_blank" rel="noopener">
+                        <div class="author-avatar">N</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">▤ DOCS · Inglés</div>
+                    <h3>Documentación oficial de n8n</h3>
+                    <p>Instalación, conceptos y referencia de cada nodo.</p>
+                    <a class="testimonial-author" href="https://docs.n8n.io/" target="_blank" rel="noopener">
+                        <div class="author-avatar">D</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+                <div class="testimonial-card">
+                    <div class="ova-tag">▤ DOCS · Es / En</div>
+                    <h3>Microsoft Learn: Power Automate</h3>
+                    <p>Documentación y rutas de aprendizaje oficiales.</p>
+                    <a class="testimonial-author" href="https://learn.microsoft.com/power-automate/" target="_blank" rel="noopener">
+                        <div class="author-avatar">M</div>
+                        <span>Abrir recurso</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo del proyecto -->
+    <section class="team-sec" id="equipo">
+        <div class="container">
+            <div class="team">
+                <h3 class="team-title">Equipo del proyecto</h3>
+                <p class="team-sub">Electiva Profesional I</p>
+                <!-- FOTOS DEL EQUIPO: cambia el enlace de src="..." en cada foto.
+                     Puede ser una ruta local (images/equipo/anderson.jpg) o una URL (https://...).
+                     Si el enlace no carga, la burbuja muestra las iniciales. -->
+                <div class="team-bubbles">
+                    <figure class="bubble bubble-lg" data-key="alvaro">
+                        <div class="bubble-c" role="img" aria-label="Foto de Álvaro Salamanca"><span class="bubble-ini" aria-hidden="true">AS</span><img class="bubble-img" src="images/equipo/alvaro.jpg" alt="Foto de Álvaro Salamanca" onerror="this.hidden=true"></div>
+                        <figcaption><b>Alvaro Salamanca Landinez</b><small>Docente</small></figcaption>
+                    </figure>
+                    <figure class="bubble" data-key="anderson">
+                        <div class="bubble-c" role="img" aria-label="Foto de Anderson Nuncira"><span class="bubble-ini" aria-hidden="true">AN</span><img class="bubble-img" src="images/equipo/anderson.png" alt="Foto de Anderson Nuncira" onerror="this.hidden=true"></div>
+                        <figcaption><b>Anderson Duvian Nuncira Martinez</b><small>Desarrollador</small></figcaption>
+                    </figure>
+                    <figure class="bubble" data-key="santiago">
+                        <div class="bubble-c" role="img" aria-label="Foto de Santiago Jaimes"><span class="bubble-ini" aria-hidden="true">SJ</span><img class="bubble-img" src="images/equipo/santiago.jpeg" alt="Foto de Santiago Jaimes" onerror="this.hidden=true"></div>
+                        <figcaption><b>Carlos Santiago Herrera Jaimes</b><small>Desarrollador</small></figcaption>
+                    </figure>
+                    <figure class="bubble" data-key="emily">
+                        <div class="bubble-c" role="img" aria-label="Foto de Emily Lozano"><span class="bubble-ini" aria-hidden="true">EL</span><img class="bubble-img" src="images/equipo/emily.jpg" alt="Foto de Emily Lozano" onerror="this.hidden=true"></div>
+                        <figcaption><b>Emely Yanieth Lozano Baez</b><small>Desarrolladora</small></figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="footer-top">
+            <div class="footer-triangle"></div>
+            <div class="footer-logs"></div>
+            <div class="footer-api-text">OVA</div>
+
+            <div class="container footer-content">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <img src="images/logo-usb.png" alt="Universidad Simón Bolívar" class="footer-logo">
+                        <p class="footer-project">Electiva Profesional I</p>
+                        <p>Facultad de Ingeniería - Ingeniería de Sistemas</p>
+                        <p class="footer-copyright">Universidad Simón Bolívar</p>
+
+                        <div class="footer-social">
+                    <a href="https://www.facebook.com/halltec.co" target="_blank" aria-label="Facebook">
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/factusfacturacion/" target="_blank" aria-label="Instagram">
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@FactusCol" target="_blank" aria-label="YouTube">
+                        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+                    </div>
+
+                    <div class="footer-info">
+                        <div class="footer-info-head">
+                            <div>
+                                <img src="images/logo-equipo.png" class="footer-emblem" alt="Logo del equipo de desarrollo" background="transparent">
+
+                                </div>
+                        </div>
+                        <h3> Docente </h3>
+                        <p>Alvaro Salamanca Landinez</p>
+                        <h3>Desarrolladores:</h3>
+                        <p>Anderson Duvian Nuncira Martinez</p>
+                        <p>Emely Yanieth Lozano Baez</p>
+                        <p>Carlos Santiago Herrera Jaimes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container footer-bottom-row">
+                <small class="footer-rights">© 2026 Universidad Simón Bolívar · Uso académico</small>
+                <nav class="footer-links" aria-label="Enlaces del pie de página">
+                    <a href="#modulos">Módulos</a><span>|</span>
+                    <a href="#glosario">Glosario</a><span>|</span>
+                    <a href="#juegos">Juegos</a><span>|</span>
+                    <a href="#recursos">Recursos</a><span>|</span>
+                    <a href="#equipo">Equipo</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="js/script.js"></script>
+    <script src="js/games.js"></script>
+    <script src="js/arcade.js"></script>
+    <script src="js/i18n-en.js"></script>
+    <script src="js/pager.js"></script>
+</body>
+</html>

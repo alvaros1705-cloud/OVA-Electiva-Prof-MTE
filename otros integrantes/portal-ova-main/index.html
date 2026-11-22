@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portal integrado OVA de Electiva I, Ingeniería de Sistemas, semestre VII">
+<title>Modelo de Transformación Empresarial | OVA Electiva I</title>
+<script src="theme.js">
+</script>
+<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="template.css?v=13">
+</head>
+<body id="top">
+<svg class="logo-filter" width="0" height="0" aria-hidden="true" focusable="false">
+  <filter id="remove-logo-background" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -7 0 0 0 6.55" result="logoInk"/>
+    <feComposite in="logoInk" in2="SourceAlpha" operator="in"/>
+  </filter>
+  <filter id="university-logo-dark" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  -1.65 0 0 0 1.55" result="ink"/>
+    <feComposite in="ink" in2="SourceAlpha" operator="in" result="silhouette"/>
+    <feFlood flood-color="#0c843a" result="green"/>
+    <feComposite in="green" in2="silhouette" operator="in"/>
+  </filter>
+</svg>
+<header class="site-nav" id="index.html">
+  <div class="nav-strip"></div>
+  <div class="nav-container">
+    <a href="index.html" class="university-brand" aria-label="Universidad Simón Bolívar · Inicio">
+      <img class="university-logo" src="assets/unisimon.png" alt="Universidad Simón Bolívar" width="1285" height="301">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primaryNavigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <span>Menú</span>
+    </button>
+    <nav class="nav-links" id="primaryNavigation" aria-label="Navegación principal">
+      <a href="index.html" data-section="home">Inicio</a>
+      <a href="?seccion=proyectos" data-section="projects">Proyectos</a>
+      <a href="?seccion=evaluaciones" data-section="learn">Evaluaciones</a>
+      <a href="?seccion=juegos" data-section="games">Juegos</a>
+      <a href="?seccion=semestres" data-section="archive">Semestres y respaldos</a>
+      <a href="https://kendastar1.github.io/MiPaginaElectivaProfesional1/" class="main-page-link">Página principal</a>
+      <div class="nav-social" role="group" aria-label="Redes de la Universidad"><a href="https://www.facebook.com/UnisimonCucuta/?locale=es_LA" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+<a href="https://www.instagram.com/unisimoncucuta/?hl=es" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+<a href="https://www.youtube.com/c/UniversidadSimonBolivarCucuta" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div>
+    </nav>
+    <div class="theme-switch" role="group" aria-label="Apariencia">
+      <button type="button" data-theme-choice="light" aria-pressed="true">☀<span class="theme-word"> Claro</span></button>
+      <button type="button" data-theme-choice="dark" aria-pressed="false">☾<span class="theme-word"> Oscuro</span></button>
+    </div>
+  </div>
+  <div class="nav-stripe"></div>
+</header>
+<script src="navigation.js?v=3"></script>
+<main>
+
+<section class="hero" id="homeHero" hidden>
+<div class="hero-triangle" aria-hidden="true"></div>
+<canvas class="hero-network" aria-hidden="true"></canvas>
+<div class="hero-fireworks" aria-hidden="true">
+  <span class="firework firework-a"></span>
+  <span class="firework firework-b"></span>
+  <span class="firework firework-c"></span>
+</div>
+<div class="hero-content">
+<div class="eyebrow">PORTAL INTEGRADO OVA · SEMESTRE VII</div>
+<h1>Electiva Profesional I<br><em>Modelo de Transformación Empresarial</em>
+</h1>
+<p>Consulta los proyectos por semestre y practica con las evaluaciones y juegos de cada unidad.</p>
+<div class="actions hero-actions">
+<a class="portal-button" href="?seccion=proyectos">Ver proyectos</a>
+<a class="portal-button secondary" href="?seccion=evaluaciones">Explorar evaluaciones</a>
+</div>
+</div>
+<div class="hero-art">
+<div class="orbit">
+</div>
+<div class="tile t1">01 <small>PASADO</small>↗</div>
+<div class="tile t2">02 <small>PRESENTE</small>↗</div>
+<div class="tile t3">03 <small>FUTURO</small>↗</div>
+</div>
+</section>
+<div class="section-toolbar"><button type="button" class="primary" id="newGroup" hidden>＋ Crear grupo</button></div>
+<div id="app"></div>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <section class="footer-brand">
+      <div class="footer-identity"><img src="assets/ingenieria.png" alt="Ingeniería de Sistemas" width="80" height="80"><h2>Electiva<br>Profesional I</h2></div>
+      <p>Modelos de Transformación Empresarial. Proyectos, evaluaciones y juegos de Ingeniería de Sistemas · Semestre VII.</p>
+      <div class="footer-social" role="group" aria-label="Redes de la Universidad"><a href="https://www.facebook.com/UnisimonCucuta/?locale=es_LA" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+<a href="https://www.instagram.com/unisimoncucuta/?hl=es" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+<a href="https://www.youtube.com/c/UniversidadSimonBolivarCucuta" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a></div>
+    </section>
+    <section><h2>Navegación</h2><ul>
+      <li><a href="index.html">Inicio</a></li><li><a href="?seccion=proyectos">Proyectos</a></li>
+      <li><a href="?seccion=evaluaciones">Evaluaciones</a></li><li><a href="?seccion=juegos">Juegos</a></li>
+      <li><a href="?seccion=semestres">Semestres y respaldos</a></li>
+    </ul></section>
+    <section><h2>Recursos</h2><ul>
+      <li><a href="https://aulaextendida.unisimon.edu.co/">Aula Extendida</a></li>
+    </ul></section>
+    <section><h2>Desarrolladores</h2><ul id="members" class="credits-list">
+      <li>Lissette Viviana Cárdenas Pallares</li><li>Jesús Gabriel Rodriguez Rubio</li><li>Yefrey Sneyder Sanchez Alba</li>
+    </ul><p class="footer-docente"><strong>Docente</strong><br>Mg. Alvaro Salamanca Landinez</p></section>
+  </div>
+  <div class="footer-bottom"><span>© 2026 Electiva Profesional I · Universidad Simón Bolívar</span><a class="footer-top" href="#top">Volver arriba <span aria-hidden="true">↑</span></a></div>
+</footer>
+<dialog id="dialog">
+<form method="dialog" id="groupForm">
+<h2>Un nuevo comienzo</h2>
+<p>Crea el espacio de trabajo de tu grupo.</p>
+<label>Semestre académico<input name="term" list="academicPeriods" placeholder="2027-1" maxlength="80" required>
+</label>
+<datalist id="academicPeriods"></datalist>
+<label>Semestre del programa<select name="level" id="programLevel" required>
+</select>
+</label>
+<label>Nombre del grupo<input name="name" placeholder="Grupo 1" required maxlength="80">
+</label>
+<label>Empresa o proyecto<input name="company" placeholder="Cerámica Italia" required maxlength="120">
+</label>
+<div class="actions">
+<button type="button" onclick="document.querySelector('dialog').close()">Cancelar</button>
+<button class="primary" type="submit">Crear grupo</button>
+</div>
+</form>
+</dialog>
+<div id="toast" role="status">
+</div>
+<script src="vendor/supabase-2.119.0.js">
+</script>
+<script src="cloud.js?v=5">
+</script>
+<script src="questions.js?v=2">
+</script>
+<script src="vendor/jspdf-4.2.1.js">
+</script>
+<script src="evidence-pdf.js?v=5">
+</script>
+<script src="evidence.js?v=5">
+</script>
+<script src="portal.js?v=3-nav">
+</script>
+<script defer src="portal-motion.js"></script>
+<script src="game-bank.js"></script>
+<script src="game-visuals.js"></script>
+<script src="app.js?v=12">
+</script>
+</body>
+</html>
