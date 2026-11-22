@@ -1,0 +1,129 @@
+/* Efectos de entrada, tarjetas y desplazamiento de la plantilla Profesional. */
+@keyframes navSlideDown {
+    from { opacity: 0; transform: translateY(-18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroFadeIn {
+    from { opacity: 0; transform: translateY(14px) scale(.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes heroFadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes cardBoxRise {
+    from { opacity: 0; transform: translateY(60px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes cardEntrance {
+    from { opacity: 0; transform: translateY(40px) scale(.9); }
+    60%  { opacity: 1; transform: translateY(-6px) scale(1.02); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes iconPop {
+    from { opacity: 0; transform: scale(0) rotate(-25deg); }
+    65%  { opacity: 1; transform: scale(1.25) rotate(8deg); }
+    to   { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes revealContent {
+    from {
+        opacity: 0;
+        transform: translate(var(--reveal-x, 0), var(--reveal-y, 40px)) scale(var(--reveal-scale, 1));
+    }
+    to { opacity: 1; transform: translate(0) scale(1); }
+}
+@keyframes blink {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+@keyframes menuSlide {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-topics {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: .4rem 1rem;
+    margin-top: 1rem;
+}
+.typing-text {
+    display: grid;
+    color: #a6f4c0;
+    font-size: clamp(.9rem, 2vw, 1.18rem);
+    font-weight: 750;
+    line-height: 1.4;
+    text-transform: uppercase;
+    margin: 0;
+    min-height: 1.4em;
+}
+.typing-phrase, .typing-measure { grid-area: 1 / 1; }
+.typing-rest, .typing-measure { visibility: hidden; }
+button.typing-toggle {
+    color: #fff;
+    background: #123b2c;
+    border-color: #85b99b;
+    padding: .2rem .5rem;
+    font-size: .8rem;
+    min-width: 10rem;
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+    :root { --entrance-ease: cubic-bezier(.22, 1, .36, 1); }
+    html { scroll-behavior: smooth; }
+    .js .main-nav { animation: navSlideDown .6s var(--entrance-ease) .1s backwards; }
+    .js .hero-content :is(h1, h2) { animation: heroFadeIn .9s var(--entrance-ease) .25s backwards; }
+    .js .lesson-hero .hero-photo { animation: heroFadeIn .85s var(--entrance-ease) .15s backwards; }
+    .js .hero-context { animation: heroFadeInUp .7s var(--entrance-ease) .15s backwards; }
+    .js .hero-subtitle, .js .hero-topics { animation: heroFadeInUp .8s var(--entrance-ease) .45s backwards; }
+    .js .hero-buttons { animation: heroFadeInUp .8s var(--entrance-ease) .6s backwards; }
+    .hero-buttons:focus-within, .hero-topics:focus-within { animation: none !important; }
+
+    .typing-text.is-typing .typing-current::after {
+        content: '|';
+        display: inline-block;
+        width: 0;
+        animation: blink 1s infinite;
+    }
+
+    .reveal-in { animation: revealContent .7s ease var(--reveal-delay, 0s) backwards; }
+    .svc-intro { --reveal-x: -50px; --reveal-y: 0; }
+    .svc-visual { --reveal-x: 50px; --reveal-y: 0; }
+    .overview-card, .driver-list li { --reveal-y: 0; --reveal-scale: .85; }
+
+    .cards-in > .quick-cards-box, .module-jumps.cards-in {
+        animation: cardBoxRise .8s var(--entrance-ease) backwards;
+    }
+    .cards-in .route-card, .module-jumps.cards-in a {
+        animation: cardEntrance .7s var(--entrance-ease) calc(.35s + var(--card-index) * .12s) backwards;
+    }
+    .cards-in .route-arrow {
+        animation: iconPop .6s cubic-bezier(.34, 1.56, .64, 1) calc(.6s + var(--card-index) * .12s) backwards;
+    }
+    .reveal-in:focus-within, .cards-in > .quick-cards-box:focus-within,
+    .module-jumps.cards-in:focus-within, .cards-in a:focus, .cards-in a:focus .route-arrow {
+        animation: none;
+    }
+
+    a.quick-card, .module-jumps a { transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease; }
+    a.quick-card:hover { transform: translateY(-6px); }
+    .route-arrow { transition: transform .25s ease; }
+    .route-card:hover .route-arrow { transform: scale(1.12) rotate(-6deg); }
+    .svc-visual img { transition: transform .5s ease; }
+    .svc-visual:hover img { transform: scale(1.02); }
+    #menu a { transition: color .2s ease, border-color .3s ease; }
+    .feedback:not([hidden]), details[open] > :not(summary) {
+        animation: menuSlide .25s ease backwards;
+    }
+
+    @media (max-width: 1080px) {
+        .js #menu.open { animation: menuSlide .4s var(--entrance-ease) backwards; }
+        .js #menu.open > :is(a, .module-menu) {
+            animation: menuSlide .25s ease calc(.08s + var(--card-index, 0) * .035s) backwards;
+        }
+        .js #menu.open:focus-within, .js #menu.open > :focus-within { animation: none; }
+        .svc-intro, .svc-visual { --reveal-x: 0; --reveal-y: 30px; }
+    }
+}
+@media print { .hero-topics { display: none; } }

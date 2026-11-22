@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Lora", Georgia, Cambria, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --color-unigreen: #006837;
+  --color-unigreen-dark: #004d28;
+  --color-unigreen-light: #008a49;
+  --color-unigreen-surface: #f1f8f3;
+}
+
+@layer base {
+  html, body {
+    overflow-x: clip;
+    max-width: 100%;
+  }
+  body {
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  body {
+    background: white !important;
+  }
+}
