@@ -185,3 +185,80 @@ html[data-theme="dark"] .lab-card p{color:#b5c8ba}
 html[data-theme="dark"] .labs-footnote{color:#a7baac}
 @media(max-width:900px){.lab-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.lab-grid{grid-template-columns:1fr}.lab-card{min-height:0}.section-labs{padding-block:72px}}
+
+/* === Accesibilidad tipográfica: lectura cómoda en escritorio, tablet y móvil === */
+html{font-size:16px}
+body{font-size:16px;line-height:1.7}
+p,.hero-description,.section-intro,.justification-copy>p,
+.purpose-band>p,.objective-card>p,.project-copy>p,
+.lab-card p,.week-card p,.unit-summary,.unit-detail p,
+.schedule-note,.method-grid>div>p,.source-note{
+  font-size:16px;
+  line-height:1.75;
+}
+.primary-nav>a:not(.nav-cta){font-size:14px}
+.nav-cta,.button,.filter-btn,.theme-button{font-size:14px}
+.brand-course strong{font-size:15px}
+.brand-course small{font-size:11px}
+.fact strong{font-size:13px}
+.fact small{font-size:12px}
+.section-kicker,.eyebrow,.hero-kicker,.project-overline{font-size:12px}
+.competence-chip small,.objective-card .card-index,
+.week-meta,.week-footer span,.unit-phase,.unit-time,
+.board-top,.board-footer,.visual-label,.visual-caption,
+.floating-note small,.lab-label,.labs-footnote{
+  font-size:12px;
+  letter-spacing:.06em;
+}
+.competence-chip strong{font-size:14px}
+.objective-card h3{font-size:24px}
+.sequence-list strong{font-size:15px}
+.sequence-list small{font-size:13px}
+.purpose-band h3{font-size:24px}
+.unit-card h3,.lab-card h3{font-size:22px}
+.unit-summary{min-height:0}
+.topic-list span,.lab-tags span{font-size:13px;padding:7px 10px}
+.unit-detail strong{font-size:13px}
+.week-card h3{font-size:16px}
+.week-tag{font-size:12px}
+.week-search input{font-size:14px}
+.step-number{font-size:12px}
+.flow-step strong{font-size:15px}
+.flow-step small{font-size:12px;max-width:130px}
+.floating-note strong{font-size:13px}
+.lab-link{font-size:14px;min-height:46px}
+.method-list span{font-size:15px}
+.footer-main,.footer-bottom{font-size:14px}
+@media(max-width:1100px){
+  .primary-nav>a:not(.nav-cta){font-size:13px}
+}
+@media(max-width:820px){
+  .primary-nav>a:not(.nav-cta){font-size:15px}
+  .brand-course strong{font-size:14px}
+  .brand-course small{font-size:10px}
+  .hero-description,.section-intro,.justification-copy>p,
+  .purpose-band>p,.objective-card>p,.project-copy>p,
+  .lab-card p,.week-card p,.unit-summary,.unit-detail p,
+  .schedule-note,.method-grid>div>p{font-size:16px}
+  .week-card h3{font-size:17px}
+}
+@media(max-width:560px){
+  body{font-size:16px}
+  .hero h1{font-size:clamp(39px,10vw,46px)}
+  .hero-lead{font-size:19px}
+  .hero-description,.section-intro,.justification-copy>p,
+  .purpose-band>p,.objective-card>p,.project-copy>p,
+  .lab-card p,.week-card p,.unit-summary,.unit-detail p,
+  .schedule-note,.method-grid>div>p{font-size:16px;line-height:1.75}
+  .section-heading h2,.section-title-row h2,.method-grid h2{font-size:clamp(32px,8vw,38px)}
+  .unit-card h3,.lab-card h3,.objective-card h3{font-size:21px}
+  .topic-list span,.lab-tags span{font-size:13px}
+  .week-card h3{font-size:16px}
+  .week-footer span,.week-meta,.unit-time,.unit-phase,
+  .section-kicker,.eyebrow,.hero-kicker,.project-overline,
+  .lab-label,.labs-footnote{font-size:12px}
+  .step-symbol{width:46px;height:46px}
+  .flow-step strong{font-size:13px}
+  .flow-step small{font-size:10px}
+}
+
