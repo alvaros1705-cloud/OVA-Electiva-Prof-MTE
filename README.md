@@ -38,15 +38,15 @@ La página de inicio es `index.html`. Presenta la identificación académica del
 
 ## Publicación en GitHub Pages
 
-Nombre previsto del repositorio: `ova-electiva-profesional-modelos`.
+Repositorio GitHub: `OVA-Electiva-Prof-MTE`.
 
-URL prevista: `https://alvaros1705-cloud.github.io/ova-electiva-profesional-modelos/`.
+Página GitHub Pages: `https://alvaros1705-cloud.github.io/OVA-Electiva-Prof-MTE/`.
 
-El repositorio debe contener estos archivos directamente en la raíz. GitHub Pages debe utilizar GitHub Actions como fuente de publicación. El workflow incluido despliega el sitio en cada actualización de `main`.
+El repositorio debe conservar esta estructura con `index.html` en la raíz. GitHub Pages debe utilizar GitHub Actions como fuente de publicación. El workflow incluido despliega el sitio en cada actualización de `main`.
 
 ## Dependencias y observaciones
 
-- `otros integrantes/portal-ova-main/` utiliza Supabase para autenticación y almacenamiento. La nueva URL pública debe agregarse a las URL de redirección permitidas en Supabase: `https://alvaros1705-cloud.github.io/ova-electiva-profesional-modelos/otros%20integrantes/portal-ova-main/index.html`. También debe revisarse el Site URL del proyecto.
+- `otros integrantes/portal-ova-main/` utiliza Supabase para autenticación y almacenamiento. La nueva URL pública debe agregarse a las URL de redirección permitidas en Supabase: `https://alvaros1705-cloud.github.io/OVA-Electiva-Prof-MTE/otros%20integrantes/portal-ova-main/index.html`. También debe revisarse el Site URL del proyecto.
 - En `otros integrantes/netflix/` no se entregaron dos videos de fondo (`integracion-bg.webm` y `integracion-bg.mp4`) ni la fotografía `images/equipo/santiago.jpeg`. El módulo dispone de poster y alternativa visual; esos tres recursos siguen pendientes de entrega.
 - Los módulos estudiantiles originales se han conservado sin rediseño. La auditoría técnica no sustituye las pruebas funcionales de formularios, autenticación externa, audio/video y navegación en un navegador real.
 - Consultar `INFORME_AUDITORIA_PUBLICACION.md` para las verificaciones y limitaciones conocidas.
