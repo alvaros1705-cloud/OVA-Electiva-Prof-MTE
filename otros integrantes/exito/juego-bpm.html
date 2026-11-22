@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oficina en marcha · OVA G4</title>
+<style>
+:root{color-scheme:light;font:16px/1.45 system-ui,sans-serif;background:#f1f7f3;color:#1a1d24;--line:#d6e9dc;--blue:#088732;--green:#04662c;--red:#962b3b}*{box-sizing:border-box}body,h1,h2,p{margin:0}body{font-family:Inter,"Segoe UI",system-ui,sans-serif}[hidden]{display:none!important}
+header{background:#102344;color:white;padding:clamp(1rem,3vw,2rem) max(1rem,calc((100% - 1040px)/2))}header small{color:#b1d5ff;font-weight:750}h1{font-size:clamp(1.8rem,5vw,3.2rem);line-height:1.05;margin:.2rem 0 .4rem}header p{color:#e1ebfa}main{max-width:1072px;margin:auto;padding:.75rem;display:grid;gap:.55rem;grid-template-columns:minmax(0,1fr)}.panel{padding:.75rem;background:white;border:1px solid var(--line);border-radius:.65rem}.top,.actions,.meters{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}.top{justify-content:space-between}h2{font-size:1.2rem}.muted{color:#485e79}.meters{align-items:stretch}.meter{flex:1;min-width:75px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:.35rem .55rem}.meter strong{display:block;font-size:1.15rem;font-variant-numeric:tabular-nums}.meter span{font-size:.75rem;color:#485e79}
+button{font:inherit;font-weight:700;border:1px solid #b8d8c3;border-radius:10px;background:#fff;color:#1a1d24;padding:.48rem .75rem;cursor:pointer;touch-action:manipulation;transition:background .18s,border-color .18s,transform .18s}button:hover:enabled{background:#f1f8f3;border-color:#088732}button:active:enabled{transform:translateY(1px)}button:disabled{opacity:.58;cursor:default}button.primary{background:#088732;color:#fff;border-color:#088732}button.primary:hover:enabled{background:#04662c;border-color:#04662c}button:focus-visible,a:focus-visible{outline:3px solid #f2a93b;outline-offset:2px}.scene{position:relative;overflow:hidden;background:#143c2b;border-radius:12px;aspect-ratio:840/500}.scene canvas{width:100%;height:100%;display:block}.scene button{position:absolute;transform:translate(-50%,-50%);white-space:nowrap;font-size:clamp(.6rem,2.25vw,.88rem);padding:.22rem .38rem;box-shadow:0 3px 7px #132c5850}.scene button[data-target]{background:#e6f5ec;border-color:#7bb790;color:#04662c}.scene button[data-jam]{background:#ffe4e9;border-color:#d27c89;color:var(--red)}.station-list{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.35rem}.station-list div{background:#f1f8f3;border-radius:6px;padding:.25rem .4rem;font-size:.78rem}.station-list strong{display:block;overflow-wrap:anywhere}.actions{margin-top:.4rem}.message{min-height:1.45rem;margin-top:.2rem;color:#405b79;font-size:.9rem}.goal{font-weight:750;color:#04662c}.controls{font-size:.86rem}.controls summary{cursor:pointer;font-weight:700}.controls p{margin-top:.35rem}.result{border-left:5px solid #f2a93b}.result p{margin:.35rem 0}.result a{color:#088732;font-weight:700}@media(max-width:530px){.station-list{grid-template-columns:repeat(2,minmax(0,1fr))}.scene{aspect-ratio:840/535}.actions button{font-size:.84rem}}
+</style>
+  <link href="images/favicon-unisimon.png" rel="icon" type="image/png"/>
+</head>
+<body>
+
+<main>
+  <section class="panel top" aria-labelledby="level">
+    <div><h2 id="level"></h2><p class="muted" id="brief"></p></div>
+    <button class="primary" id="start">Empezar turno</button>
+  </section>
+  <div class="meters" aria-label="Indicadores">
+    <div class="meter"><strong id="clock"></strong><span>Tiempo</span></div>
+    <div class="meter"><strong id="done"></strong><span>Entregados / meta</span></div>
+    <div class="meter"><strong id="budget"></strong><span>Presupuesto</span></div>
+    <div class="meter"><strong id="lost"></strong><span>Perdidos</span></div>
+  </div>
+  <div class="scene" id="scene">
+    <canvas id="view" width="840" height="500" tabindex="-1" aria-label="Oficina 3D con cuatro departamentos"></canvas>
+  </div>
+  <section class="panel" aria-label="Acciones del analista">
+    <p class="goal" id="goal"></p>
+    <p class="message" id="message" role="status"></p>
+    <div class="actions">
+      <button class="primary" id="use">Recoger / dejar · Espacio</button>
+      <button id="staff">Asignar personal · E</button>
+      <button id="rpa" hidden>Automatizar · R</button>
+    </div>
+  </section>
+  <section class="station-list" id="stations" aria-label="Colas y capacidad"></section>
+  <section class="panel result" id="result" hidden aria-labelledby="verdict">
+    <h2 id="verdict" tabindex="-1"></h2><p id="report"></p><p id="lesson"></p>
+    <div class="actions"><button id="retry">Repetir turno</button><button class="primary" id="next">Siguiente turno</button><a id="read" target="_blank" rel="noopener">Repasar en el OVA</a></div>
+  </section>
+  <details class="panel controls">
+    <summary>Controles y reglas</summary>
+    <p>Con teclado, muévete con WASD o las flechas. Presiona Espacio cerca de una mesa para recoger o dejar un expediente. E asigna un asistente a esa mesa y R automatiza Validación cuando se habilita.</p>
+    <p>Con ratón o en pantalla táctil, pulsa el nombre de un departamento para caminar hasta allí. Usa el botón de acción al llegar. Pulsa el mismo departamento de nuevo para interactuar.</p>
+    <p>Cada expediente pasa por Recepción, Validación, Aprobación y Entrega. Puedes llevar uno a la vez. Los listos tienen una marca ✓. La bandeja de cada estación admite cinco expedientes; si Recepción está llena al llegar otro pedido, lo pierdes.</p>
+  </details>
+</main>
+<script>
+'use strict';
+
+// Tiempos en segundos, fondos en unidades del presupuesto del juego.
+const rules = {staff:180, rpa:300, reward:55, capacity:5, movement:5.8};
+const levels = [
+  {title:'1. Primer día', brief:'Haz una entrega guiada. Puedes tomarte tu tiempo.', target:1, total:1, initial:1, interval:0, seconds:null, funds:0, times:[.5,1.3,1.6,.4], url:'procesos.html', lesson:'Cada expediente recorre las mismas cuatro etapas. Ese es el proceso empresarial que puedes representar en un diagrama BPMN.'},
+  {title:'2. Cola en Aprobación', brief:'Lleva varios expedientes a Aprobación y asigna un asistente donde se acumulan.', target:3, total:6, initial:3, interval:10, seconds:100, funds:180, times:[.4,1.2,10,0.5], staff:true, url:'bpm.html', lesson:'En BPM, mide dónde se acumula el trabajo. Añadir capacidad en la etapa que limita las entregas ayuda a reducir esa cola.'},
+  {title:'3. Tienda digital', brief:'Valida datos repetitivos con RPA y reserva al personal para la aprobación.', target:4, total:8, initial:4, interval:7, seconds:115, funds:480, times:[.4,8,7,.5], staff:true, rpa:true, url:'tecnologias.html', lesson:'Con datos estandarizados, un piloto RPA puede comprobar campos repetitivos. Aprobación sigue bajo control humano. Compara las colas y entregas para evaluar el proceso To-Be.'}
+];
+const definitions = [
+  {name:'Recepción', x:2.1,z:1.65,px:2.1,pz:2.85,color:'#50a1f1', light:'#b2ddff'},
+  {name:'Validación',x:8.9,z:1.65,px:8.9,pz:2.85,color:'#9c83ee',light:'#e1d2ff'},
+  {name:'Aprobación',x:8.9,z:6.35,px:8.9,pz:5.15,color:'#df9639',light:'#ffe1a4'},
+  {name:'Entrega',x:2.1,z:6.35,px:2.1,pz:5.15,color:'#40bb9c',light:'#c8f9db'}
+];
+const el = id => document.getElementById(id);
+const ctx = el('view').getContext('2d');
+const motion = matchMedia('(prefers-reduced-motion: reduce)');
+const keys = new Set();
+let game;
+let frameTime = 0;
+const stations = definitions.map((department,index) => {
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.textContent = (index+1) + ' · ' + department.name;
+  button.addEventListener('click', () => visit(index));
+  el('scene').append(button);
+  const panel = document.createElement('div');
+  const title = document.createElement('strong');
+  title.textContent = department.name;
+  const summary = document.createElement('span');
+  panel.append(title,summary);
+  el('stations').append(panel);
+  return {...department,button,summary};
+});
+
+function reset(index) {
+  const level = levels[index];
+  keys.clear();
+  game = {
+    index,level,phase:'ready',time:0,budget:level.funds,spawned:0,delivered:0,lost:0,
+    nextArrival:level.interval, x:5.5,z:4, destination:null, load:null,
+    departments:stations.map(() => ({pending:[],ready:[],staff:false,rpa:false,peak:0})),
+    message:''
+  };
+  el('level').textContent = level.title;
+  el('brief').textContent = level.brief;
+  el('result').hidden = true;
+  for (let i=0;i<level.initial;i++) receive();
+  render();
+}
+
+function receive() {
+  const reception = game.departments[0];
+  const id = ++game.spawned;
+  if (reception.pending.length + reception.ready.length >= rules.capacity) {
+    game.lost++;
+    say('Recepción estaba llena. Se perdió el pedido #' + id + '.');
+  } else {
+    reception.pending.push({id, work:game.level.times[0]});
+  }
+}
+
+function distance(station) {
+  return Math.hypot(game.x-station.px,game.z-station.pz);
+}
+
+function nearby() {
+  return stations.findIndex(station => distance(station) < 1.08);
+}
+
+function visit(index) {
+  if (game.phase !== 'running') return;
+  if (nearby() === index) interact();
+  else game.destination = index;
+}
+
+function say(message) {
+  game.message = message;
+}
+
+function interact() {
+  if (game.phase !== 'running') return;
+  const index = nearby();
+  if (index < 0) return say('Acércate a un departamento para usar su bandeja.');
+  const station = game.departments[index];
+  if (!game.load) {
+    const ticket = station.ready.shift();
+    if (!ticket) return say(station.pending.length ? 'Esa mesa sigue procesando. Espera la marca ✓.' : 'Esta mesa no tiene expedientes listos.');
+    game.load = {id:ticket.id, next:index+1};
+    say('Recogiste el expediente #' + ticket.id + '.');
+    return;
+  }
+  const ticket = game.load;
+  if (index !== ticket.next) return say('El expediente debe pasar por ' + stations[ticket.next].name + '.');
+  if (station.pending.length + station.ready.length >= rules.capacity) return say('La bandeja está llena. Espera antes de dejar el expediente.');
+  game.load = null;
+  station.pending.push({id:ticket.id,work:game.level.times[index]});
+  say('Dejaste el expediente #' + ticket.id + ' en ' + stations[index].name + '.');
+}
+
+function upgrade(kind) {
+  if (game.phase !== 'running' || !game.level[kind]) return;
+  const index = nearby();
+  if (index < 0) return say('Acércate a una mesa para aplicar la mejora.');
+  const station = game.departments[index];
+  if (kind === 'rpa' && index !== 1) return say('El piloto RPA está habilitado en Validación, donde los datos ya son digitales.');
+  if (station[kind]) return say('Esta mejora ya está activa aquí.');
+  if (game.budget < rules[kind]) return say('Presupuesto insuficiente. Cada entrega aporta $' + rules.reward + '.');
+  game.budget -= rules[kind];
+  station[kind] = true;
+  say(kind === 'staff' ? 'Asistente en ' + stations[index].name + ': aumenta la capacidad de la mesa.' :
+    'RPA en Validación: los campos repetitivos se revisan más rápido.');
+}
+
+function advanceSimulation(dt) {
+  game.time += dt;
+  if (game.spawned < game.level.total && game.time >= game.nextArrival) {
+    receive();
+    game.nextArrival += game.level.interval;
+  }
+  game.departments.forEach((station,index) => {
+    station.peak = Math.max(station.peak, station.pending.length);
+    const speed = (station.staff ? 2.3 : 1) * (station.rpa ? 3.2 : 1);
+    let work = dt * speed;
+    while (work > 0 && station.pending.length) {
+      const ticket = station.pending[0];
+      const used = Math.min(ticket.work,work);
+      ticket.work -= used;
+      work -= used;
+      if (ticket.work > 0) break;
+      station.pending.shift();
+      if (index < stations.length-1) station.ready.push(ticket);
+      else {
+        game.delivered++;
+        game.budget += rules.reward;
+        say('Pedido #' + ticket.id + ' entregado. +' + rules.reward + ' al presupuesto.');
+      }
+    }
+  });
+  if (game.delivered >= game.level.target) finish(true);
+  else if (game.level.total-game.lost < game.level.target) finish(false,'Quedan muy pocos pedidos para alcanzar la meta.');
+  else if (game.level.seconds !== null && game.time >= game.level.seconds) finish(false,'Se agotó el tiempo.');
+}
+
+function move(dt) {
+  const has = (...values) => values.some(key => keys.has(key));
+  let x = Number(has('d','arrowright')) - Number(has('a','arrowleft'));
+  let z = Number(has('s','arrowdown')) - Number(has('w','arrowup'));
+  if (x || z) game.destination = null;
+  if (game.destination !== null) {
+    const target = stations[game.destination];
+    x = target.px-game.x;
+    z = target.pz-game.z;
+    if (Math.hypot(x,z) <= rules.movement*dt) {
+      game.x = target.px;
+      game.z = target.pz;
+      game.destination = null;
+      return;
+    }
+  }
+  const length = Math.hypot(x,z);
+  if (!length) return;
+  game.x = Math.max(.85,Math.min(10.15,game.x+x/length*rules.movement*dt));
+  game.z = Math.max(2.52,Math.min(5.48,game.z+z/length*rules.movement*dt));
+}
+
+function objective() {
+  if (game.phase === 'ready') return 'Pulsa «Empezar turno».';
+  if (game.phase === 'paused') return 'Turno pausado.';
+  if (game.phase === 'ended') return 'Consulta el resultado del turno.';
+  if (game.load) return 'Llevas el expediente #' + game.load.id + ' → ' + stations[game.load.next].name + '.';
+  const ready = game.departments.findLastIndex(station => station.ready.length);
+  if (ready >= 0) return 'Recoge un expediente listo en ' + stations[ready].name + '.';
+  const working = game.departments.findLastIndex(station => station.pending.length);
+  return working >= 0 ? 'Procesando en ' + stations[working].name + '. Espera la marca ✓ o ve a recoger otro expediente.' :
+    'Espera el próximo pedido en Recepción.';
+}
+
+function finish(won, reason = '') {
+  game.phase = 'ended';
+  game.destination = null;
+  keys.clear();
+  const busy = game.departments.map((station,index) => ({name:stations[index].name,peak:station.peak}))
+    .reduce((a,b) => b.peak > a.peak ? b : a);
+  const final = game.index === levels.length-1;
+  el('verdict').textContent = won ? (final ? '¡Oficina en marcha!' : '¡Meta cumplida!') : 'Terminó el turno';
+  el('report').textContent = (reason ? reason + ' ' : '') + 'Entregaste ' + game.delivered + ' de ' + game.level.target +
+    ' pedidos de la meta. La mayor acumulación de expedientes por procesar fue en ' + busy.name + ' (' + busy.peak + ').';
+  el('lesson').textContent = game.level.lesson;
+  el('read').href = game.level.url;
+  el('next').hidden = !won;
+  el('next').textContent = final ? 'Volver al primer turno' : 'Siguiente turno';
+  el('result').hidden = false;
+  el('verdict').focus();
+}
+
+function render() {
+  const active = game.phase === 'running';
+  const near = nearby();
+  const prompt = objective();
+  el('goal').textContent = prompt;
+  if (el('message').textContent !== game.message) el('message').textContent = game.message;
+  el('start').textContent = active ? 'Pausar' : game.phase === 'paused' ? 'Continuar' : 'Empezar turno';
+  el('start').disabled = game.phase === 'ended';
+  el('clock').textContent = game.level.seconds === null ? 'Sin límite' : Math.max(0,Math.ceil(game.level.seconds-game.time)) + ' s';
+  el('done').textContent = game.delivered + ' / ' + game.level.target;
+  el('lost').textContent = game.lost;
+  el('budget').textContent = '$' + game.budget;
+  el('use').disabled = !active || near < 0;
+  el('staff').textContent = 'Asignar personal · $' + rules.staff + ' · E';
+  el('staff').hidden = !game.level.staff;
+  el('staff').disabled = !active || near < 0 || game.budget < rules.staff || game.departments[near].staff;
+  el('rpa').textContent = 'Automatizar · $' + rules.rpa + ' · R';
+  el('rpa').hidden = !game.level.rpa;
+  el('rpa').disabled = !active || near !== 1 || game.departments[1].rpa || game.budget < rules.rpa;
+  const suggested = game.load ? game.load.next : game.departments.findLastIndex(station => station.ready.length);
+  stations.forEach((department,index) => {
+    const state = game.departments[index];
+    department.button.disabled = !active;
+    department.button.toggleAttribute('data-target',suggested === index);
+    department.button.toggleAttribute('data-jam',state.pending.length >= 3);
+    department.summary.textContent = state.pending.length + ' por procesar · ' + state.ready.length + ' listos' +
+      (state.staff ? ' · +1 persona' : '') + (state.rpa ? ' · RPA' : '');
+  });
+}
+
+// La proyección ortográfica representa cada objeto con coordenadas x, altura y profundidad z.
+function project(x,y,z) { return [420+(x-5.5)*52+(z-4)*20,54+z*44-y*55]; }
+
+function polygon(points,fill) {
+  ctx.beginPath();
+  points.forEach((point,index) => index ? ctx.lineTo(...point) : ctx.moveTo(...point));
+  ctx.closePath();
+  ctx.fillStyle = fill;
+  ctx.fill();
+}
+
+function box(x,z,width,depth,bottom,height,colors) {
+  const left=x-width/2,right=x+width/2,front=z+depth/2,back=z-depth/2,top=bottom+height;
+  const a=project(left,top,back),b=project(right,top,back),c=project(right,top,front),d=project(left,top,front);
+  polygon([a,d,project(left,bottom,front),project(left,bottom,back)],colors[2]);
+  polygon([d,c,project(right,bottom,front),project(left,bottom,front)],colors[1]);
+  polygon([a,b,c,d],colors[0]);
+}
+
+function actor(x,z,shirt,skin,bob=0) {
+  const [sx,sy] = project(x,0,z);
+  ctx.fillStyle='#1c31534b';
+  ctx.beginPath();
+  ctx.ellipse(sx,sy,20,8,0,0,Math.PI*2);
+  ctx.fill();
+  box(x-.13,z,.18,.24,0,.28,['#53708e','#233d63','#304e76']);
+  box(x+.13,z,.18,.24,0,.28,['#53708e','#233d63','#304e76']);
+  box(x,z,.52,.36,.25+bob,.45,[shirt,shirt,'#2e5471']);
+  box(x,z,.39,.33,.7+bob,.31,[skin,skin,'#a77966']);
+  box(x,z,.43,.35,.98+bob,.09,['#29334e','#26314b','#1c253a']);
+  const [faceX,faceY]=project(x,.85+bob,z+.18);
+  ctx.fillStyle='#27334e';
+  ctx.fillRect(faceX-5,faceY,3,3);
+  ctx.fillRect(faceX+4,faceY,3,3);
+}
+
+function drawStation(index) {
+  const s=stations[index], state=game.departments[index];
+  const palette=[s.light,s.color,'#485c83'];
+  box(s.x,s.z,2.1,1.03,0,.14,['#e3edff','#829cc4','#98afd0']);
+  box(s.x,s.z,1.75,.8,.08,.56,palette);
+  box(s.x-.43,s.z-.18,.48,.12,.64,.33,['#8eadd7','#263f65','#1c3457']);
+  box(s.x+.37,s.z-.13,.68,.43,.65,.08,['#a4b8d6','#738ab2','#516990']);
+  const waiting=Math.min(5,state.ready.length+state.pending.length);
+  for(let i=0;i<waiting;i++) {
+    const ready=i<state.ready.length;
+    const x=s.x+.11+(i%3)*.24, z=s.z+.21-Math.floor(i/3)*.25;
+    box(x,z,.18,.24,.68,.06,ready?['#f4fff3','#62c28c','#327855']:['#fff4b0','#e4a94e','#b37031']);
+    if(ready) {
+      const [tx,ty]=project(x,.75,z);
+      ctx.fillStyle='#235d43';
+      ctx.font='bold 10px system-ui';
+      ctx.textAlign='center';
+      ctx.fillText('✓',tx,ty+2);
+    }
+  }
+  if(state.staff) actor(s.x+.95,s.z-.22,'#47b589','#eab796');
+  if(state.rpa) box(s.x+.58,s.z-.32,.24,.24,.66,.27,['#90ffff','#39c9dc','#187e99']);
+}
+
+function draw() {
+  ctx.clearRect(0,0,840,500);
+  const gradient=ctx.createLinearGradient(0,0,0,500);
+  gradient.addColorStop(0,'#183255');
+  gradient.addColorStop(1,'#14274a');
+  ctx.fillStyle=gradient;
+  ctx.fillRect(0,0,840,500);
+  box(5.5,4,11,8,-.22,.22,['#aec2df','#5b759b','#748fb6']);
+  for(let x=0;x<11;x++) for(let z=0;z<8;z++) {
+    polygon([project(x,0,z),project(x+1,0,z),project(x+1,0,z+1),project(x,0,z+1)],
+      (x+z)%2 ? '#c6d7eb' : '#d3e0f0');
+  }
+  stations.forEach(s => {
+    const [x,y]=project(s.px,0,s.pz);
+    ctx.strokeStyle=s.color;
+    ctx.lineWidth=3;
+    ctx.beginPath();
+    ctx.ellipse(x,y,26,13,0,0,Math.PI*2);
+    ctx.stroke();
+    const [bx,by]=project(s.x,.75,s.z-.18);
+    s.button.style.left=(bx/8.4)+'%';
+    s.button.style.top=((by-28)/5)+'%';
+  });
+  const objects=stations.map((s,index)=>({depth:s.z,paint:()=>drawStation(index)}));
+  objects.push({depth:game.z,paint:()=>{
+    const bob=(!motion.matches && (keys.size || game.destination!==null)) ? Math.sin(game.time*23)*.055 : 0;
+    actor(game.x,game.z,'#2860da','#f0bd99',bob);
+    if(game.load) box(game.x+.34,game.z+.19,.46,.31,.37+bob,.12,['#fff4b3','#f4b756','#a66e24']);
+    const [x,y]=project(game.x,1.32,game.z);
+    ctx.textAlign='center';
+    ctx.font='bold 13px system-ui';
+    ctx.fillStyle='#102e65';
+    ctx.fillText('TÚ',x,y);
+  }});
+  objects.sort((a,b)=>a.depth-b.depth).forEach(object=>object.paint());
+}
+
+function loop(now) {
+  const dt=Math.min(.05,(now-frameTime)/1000);
+  frameTime=now;
+  if(game.phase==='running' && dt>0) {
+    move(dt);
+    advanceSimulation(dt);
+    render();
+    draw();
+  }
+  requestAnimationFrame(loop);
+}
+
+function toggle() {
+  if(game.phase==='ended') return;
+  if(game.phase==='running') {
+    game.phase='paused';
+    keys.clear();
+  } else {
+    game.phase='running';
+    el('view').focus({preventScroll:true});
+    say(game.index===0?'Pulsa Recepción para acercarte. Cuando veas ✓, recoge el expediente.':'');
+  }
+  render();
+  draw();
+}
+
+el('start').addEventListener('click',toggle);
+el('use').addEventListener('click',interact);
+el('staff').addEventListener('click',()=>upgrade('staff'));
+el('rpa').addEventListener('click',()=>upgrade('rpa'));
+el('retry').addEventListener('click',()=>{reset(game.index);draw();el('start').focus();});
+el('next').addEventListener('click',()=>{reset((game.index+1)%levels.length);draw();el('start').focus();});
+const movementKeys=['a','d','w','s','arrowleft','arrowright','arrowup','arrowdown'];
+document.addEventListener('keydown',event=>{
+  if(game.phase!=='running'||event.altKey||event.ctrlKey||event.metaKey) return;
+  const key=event.key.toLowerCase();
+  if(movementKeys.includes(key)) {
+    event.preventDefault();
+    keys.add(key);
+    el('view').focus({preventScroll:true});
+    return;
+  }
+  if(event.repeat) return;
+  if(key===' ' && !event.target.closest('button,a,summary')) {
+    event.preventDefault();
+    interact();
+  }
+  if(key==='e') upgrade('staff');
+  if(key==='r') upgrade('rpa');
+});
+document.addEventListener('keyup',event=>keys.delete(event.key.toLowerCase()));
+window.addEventListener('blur',()=>keys.clear());
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&game.phase==='running') toggle();});
+reset(0);
+draw();
+requestAnimationFrame(loop);
+
+if(window.parent!==window && 'ResizeObserver' in window) {
+  new ResizeObserver(()=>{
+    window.parent.postMessage({
+      type:'simulador-bpm:altura',height:Math.ceil(document.body.getBoundingClientRect().height)
+    },'*');
+  }).observe(document.body);
+}
+</script>
+</body>
+</html>
