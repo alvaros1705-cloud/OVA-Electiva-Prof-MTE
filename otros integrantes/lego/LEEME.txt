@@ -1,0 +1,9 @@
+OVA - Universidad Simon Bolivar
+
+PARA VERLO: abre la carpeta "ABRIR_AQUI" y da doble clic en index.html
+(funciona sin instalar nada; necesita internet solo para las fuentes e imagenes externas).
+
+PARA EDITAR EL CODIGO:
+  npm install
+  npm run dev        (http://localhost:3000)
+  npm run build      (regenera dist/index.html, ya en un solo archivo)

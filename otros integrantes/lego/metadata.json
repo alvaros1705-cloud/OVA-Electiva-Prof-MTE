@@ -1,0 +1,6 @@
+{
+  "name": "OVA Universidad Simón Bolívar",
+  "description": "Objeto Virtual de Aprendizaje interactivo de la Universidad Simón Bolívar en Innovación, Ciberseguridad, Gestión de Riesgos, Cultura Organizacional y Gestión del Cambio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
