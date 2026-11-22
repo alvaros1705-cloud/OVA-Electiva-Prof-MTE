@@ -887,3 +887,54 @@ html[data-theme="dark"] .sequence-list > div:nth-child(3) {
   border-color: #5c5084;
   box-shadow: 0 8px 22px rgba(0, 0, 0, .18);
 }
+
+
+/* Botón "Explorar la OVA": mismas proporciones en tema claro y oscuro */
+.nav-cta {
+  box-sizing: border-box;
+  display: flex;
+  flex: 0 0 108px;
+  width: 108px;
+  min-width: 108px;
+  max-width: 108px;
+  height: 80px;
+  min-height: 80px;
+  max-height: 80px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 12px;
+  gap: 0;
+  border-radius: 999px;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.2;
+  font-size: 14px;
+  overflow-wrap: normal;
+}
+@media (max-width: 1100px) and (min-width: 821px) {
+  .nav-cta {
+    flex-basis: 104px;
+    width: 104px;
+    min-width: 104px;
+    max-width: 104px;
+    height: 76px;
+    min-height: 76px;
+    max-height: 76px;
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+}
+@media (max-width: 820px) {
+  .primary-nav .nav-cta {
+    flex: 0 0 108px;
+    width: 108px;
+    min-width: 108px;
+    max-width: 108px;
+    height: 80px;
+    min-height: 80px;
+    max-height: 80px;
+    align-self: center;
+    margin: 13px auto 0;
+    font-size: 14px;
+  }
+}
