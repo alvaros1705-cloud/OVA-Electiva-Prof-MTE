@@ -379,3 +379,19 @@ find('#download-case').addEventListener('click', () => {
   link.remove();
   setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
+
+/* Inyecta el acceso común al portal principal de la OVA */
+(function () {
+  function loadPortalHome() {
+    if (document.querySelector("script[data-ova-home-loader]")) return;
+    var script = document.createElement("script");
+    script.src = "https://alvaros1705-cloud.github.io/OVA-Electiva-Prof-MTE/js/ova-home-return.js?v=1";
+    script.setAttribute("data-ova-home-loader", "");
+    document.head.appendChild(script);
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", loadPortalHome, { once: true });
+  } else {
+    loadPortalHome();
+  }
+})();
